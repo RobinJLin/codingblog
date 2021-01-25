@@ -78,7 +78,7 @@
     <article id="post-酸文or-not-來用用看諷刺文本吧" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/codingblog/2021/01/25/%E9%85%B8%E6%96%87or-not-%E4%BE%86%E7%94%A8%E7%94%A8%E7%9C%8B%E8%AB%B7%E5%88%BA%E6%96%87%E6%9C%AC%E5%90%A7/" class="article-date">
-  <time class="dt-published" datetime="2021-01-25T02:26:55.000Z" itemprop="datePublished">2021-01-25</time>
+  <time class="dt-published" datetime="2021-01-25T02:26:00.000Z" itemprop="datePublished">2021-01-25</time>
 </a>
     
   </div>
@@ -103,28 +103,15 @@
 <p>就是靠「句型」!!!</p>
 <p>的確，諷刺需要很多線索組合，只是句型算是第一個我們開始辨識的主要線索之一，如果可以掌握，應該就能先讓電腦理解大部分~ </p>
 <p>先讓大家看看我們的成果</p>
-<h4 id="成果"><a href="#成果" class="headerlink" title="成果"></a>成果</h4><p>我們的分類器主要是靠句型，所以如果對到很多我們確定應該大家都可能判定為酸的句型，那這篇文章就比較可能是酸，如果沒有，那就比較有可能是不酸。所以電腦就會幫我們算算看到底對到幾句，再除以總句數，那麼就可以算出可能是諷刺的比例了，靠近1微酸，靠近0為不酸。</p>
-<p>我們測了幾篇文章，效果都還算不錯，主要新聞類比例都很低，而那些被網友評為高級酸文的文章比例都很高。</p>
-<p>以下提供我們做的兩個極端例子~</p>
-<p>  如果是新聞，是長這樣，算出來沒有對到任何句子<br>  <img src="https://upload.cc/i1/2021/01/25/RzhjJu.png" alt="新聞"></p>
-<p>  如果是酸文是長這樣~ 是0.83<br>  <img src="https://upload.cc/i1/2021/01/25/clzqpF.png" alt="酸文"></p>
-<h4 id="方法概述"><a href="#方法概述" class="headerlink" title="方法概述"></a>方法概述</h4><p>做法真的不難，只是要使用正確的方法!!<br>這邊我們是用</p>
-<ol>
-<li>Loki 來幫助我們計算句型種類<br><img src="https://api.droidtown.co/static/memberAPP/images/loki.png" alt="loki logo"></li>
-<li>Articut 來幫忙斷句<br><img src="https://api.droidtown.co/static/images/logo/articut.png" alt="Articut"></li>
-<li>簡單的python 基礎程式 (把酸的句型count 出來 除以 所有句子) </li>
-</ol>
-<p>卓騰語言科技把這兩樣工具設計得很直覺，就算是我這樣的科技黑手<del>(aka 家電破壞王)</del>、程式小菜菜把玩幾下，就可以上手。</p>
-<p>Loki 是一個幫助理解語意的小幫手，他可以幫忙把新吃進去的句子以句型來分類。那句型分類的好處在於，句型比起字詞是比較有限的。想想英文裡面說來說去也就那5大句型，其實中文我們使用的句型也是固定的，而且是少的。所以反過來說，只要掌握句型，電腦就可以辨識比較多的句子可能性!!使用這個最大的好處就是就算是硬體設備不好，我也可以輕鬆教電腦句子，因為要教的東西少，電腦也跑得動~~ </p>
-<p>而Articut 是利用句法來斷詞的工具，同理，因為是利用有限的句子的樣子來做分類，其實斷詞可以斷得更精準，跑起來速度也比較快速。</p>
-<p>最後偵測好這些句型，保持一顆還算清楚的頭腦算一算一篇文章中酸句型的比例，就可以~ </p>
-<p>真的就這樣，簡簡單單，超級容易，</p>
-<p>只要能運用一點點語言學知識，你就可以完成一個諷刺文本分類器惹~</p>
-
+        
+          <p class="article-more-link">
+            <a href="/codingblog/2021/01/25/%E9%85%B8%E6%96%87or-not-%E4%BE%86%E7%94%A8%E7%94%A8%E7%9C%8B%E8%AB%B7%E5%88%BA%E6%96%87%E6%9C%AC%E5%90%A7/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://robinjlin.github.io/codingblog/2021/01/25/%E9%85%B8%E6%96%87or-not-%E4%BE%86%E7%94%A8%E7%94%A8%E7%9C%8B%E8%AB%B7%E5%88%BA%E6%96%87%E6%9C%AC%E5%90%A7/" data-id="ckkbztfmq0002x0vx6re20ix6" data-title="酸文or not~ 來判斷看看是不是諷刺文本吧~" class="article-share-link">Share</a>
+      <a data-url="https://robinjlin.github.io/codingblog/2021/01/25/%E9%85%B8%E6%96%87or-not-%E4%BE%86%E7%94%A8%E7%94%A8%E7%9C%8B%E8%AB%B7%E5%88%BA%E6%96%87%E6%9C%AC%E5%90%A7/" data-id="ckkbzyv450002ugvx5df27toa" data-title="酸文or not~ 來判斷看看是不是諷刺文本吧~" class="article-share-link">Share</a>
       
       
       
@@ -173,7 +160,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://robinjlin.github.io/codingblog/2021/01/24/%E5%88%B0%E5%BA%95%E6%98%AF%E4%B8%8D%E6%98%AF%E9%AB%98%E7%B4%9A%E9%85%B8-%E4%BA%A4%E7%B5%A6%E8%AB%B7%E5%88%BA%E6%96%87%E6%9C%AC%E5%88%86%E9%A1%9E%E5%99%A8%E5%90%A7-1/" data-id="ckkbztfmo0001x0vx8gx94tz1" data-title="這篇文章酸到發酵? 分析酸味的諷刺文本分類器 ~" class="article-share-link">Share</a>
+      <a data-url="https://robinjlin.github.io/codingblog/2021/01/24/%E5%88%B0%E5%BA%95%E6%98%AF%E4%B8%8D%E6%98%AF%E9%AB%98%E7%B4%9A%E9%85%B8-%E4%BA%A4%E7%B5%A6%E8%AB%B7%E5%88%BA%E6%96%87%E6%9C%AC%E5%88%86%E9%A1%9E%E5%99%A8%E5%90%A7-1/" data-id="ckkbzyv3y0001ugvx691v0qlp" data-title="這篇文章酸到發酵? 分析酸味的諷刺文本分類器 ~" class="article-share-link">Share</a>
       
       
       
