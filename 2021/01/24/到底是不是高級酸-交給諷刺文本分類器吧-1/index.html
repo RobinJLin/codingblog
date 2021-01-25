@@ -16,8 +16,11 @@
 <meta property="og:image" content="https://api.droidtown.co/static/memberAPP/images/loki.png">
 <meta property="og:image" content="https://upload.cc/i1/2021/01/24/gowDOu.png">
 <meta property="og:image" content="https://upload.cc/i1/2021/01/24/d1uAiJ.png">
+<meta property="og:image" content="https://upload.cc/i1/2021/01/25/7h6rs1.png">
+<meta property="og:image" content="https://upload.cc/i1/2021/01/25/RzhjJu.png">
+<meta property="og:image" content="https://upload.cc/i1/2021/01/25/clzqpF.png">
 <meta property="article:published_time" content="2021-01-23T16:42:34.000Z">
-<meta property="article:modified_time" content="2021-01-24T10:28:02.265Z">
+<meta property="article:modified_time" content="2021-01-25T02:25:40.988Z">
 <meta property="article:author" content="Robin Lin">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://api.droidtown.co/static/memberAPP/images/loki.png">
@@ -127,19 +130,19 @@
 <p>   LOKI 是一個可以幫你分類句型的工具。由卓騰語言科技研發，前面我們自己工人智慧前處理，但有了loki就可以幫你把這些句子以句型來分類。</p>
 <p>   ㄟ都，幹嘛分類成句型呢？</p>
 <p>   還記得嗎？我們人類自己判斷諷刺時，我們也會用句型當作其中一個工具。例如我們看到「你真棒！」感覺會比「你很棒!」要來的酸一點，那兩個的差別就再「真+adj」和「很+adj」的差別。而你把這些我們人類覺得酸的句子放入Loki，就是透過Loki來教電腦那些是我們人類覺得酸的句子。</p>
-<p>   [放圖]</p>
 <p>   用句型來分類的最大好處是，我們覺得酸的句型是有限的，就是某些特定的句型我們會覺得酸，所以如果電腦以後看到全新的句子，大多脫不了這些句型，例如我們現在輸入「真+adj」有很大的機會會諷刺，那不管電腦看到「你真棒！」、「他真強！」「小美真美！」等等等等，都可以被辨認出來！</p>
 <p>   怎麼放入Loki 呢? 非常容易~ </p>
 <ul>
-<li><p>點入之後先新增一個專案，那如果我們這邊把我們的專案叫做mock_politeness<br><img src="https://upload.cc/i1/2021/01/24/gowDOu.png" alt="mock1"> </p>
-<p>輸入好後，點開這裡。<br>  <img src="https://upload.cc/i1/2021/01/24/d1uAiJ.png" alt="mock2"></p>
-<p>接著把這些框框打勾就好。</p>
+<li><p>點入之後先新增一個專案，那如果我們這邊把我們的專案叫做mock_politeness<br><img src="https://upload.cc/i1/2021/01/24/gowDOu.png" alt="專案新增"> </p>
+<p>輸入好後，點開這裡。<br>  <img src="https://upload.cc/i1/2021/01/24/d1uAiJ.png" alt="專案"></p>
+</li>
+<li><p>接著把這些框框打勾就好。<br><img src="https://upload.cc/i1/2021/01/25/7h6rs1.png" alt="框框打勾"></p>
+<p>我們前置準備就好了</p>
+<p>幫大家複習一下~</p>
+<p>a. 準備確定酸的句子</p>
+<p>b. 丟入Loki ，把格子勾一勾</p>
 </li>
 </ul>
-<p>   我們前置準備就好了</p>
-<p>   幫大家複習一下~</p>
-<p>   a. 準備確定酸的句子</p>
-<p>   b. 丟入Loki ，把格子勾一勾</p>
 <h3 id="程式"><a href="#程式" class="headerlink" title="程式"></a>程式</h3><p>接著我們要進入到寫程式了!</p>
 <p>諷刺之所以會感覺有點難讓電腦做便是是因為感覺很沒有規則。有時候「你真棒」是在說你的好，但有時候卻會是諷刺你沒有這麼好！<br>那該怎麼辦呢？</p>
 <p>好好用你剛剛手上的那些句子，那些會被我們辨認成諷刺的句型，這些句型會成為電腦判斷諷刺的標準。</p>
@@ -163,10 +166,10 @@
 <li><p>打開intent 外資料夾，開始寫比對程式</p>
 <ul>
 <li><p>首先，我們要和電腦說要從0分開始幫我們算，也就是<code>resultDICT[&quot;mock&quot;] += 0</code>，這句話要加在 <code>runLoki</code>這支function 裡面。怎麼加呢？如下，加在第一個if 內的resultDICT裡面。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">runLoki</span>(<span class="params">inputLIST</span>):</span></span><br><span class="line">	resultDICT = &#123;&#125;</span><br><span class="line">	resultDICT[<span class="string">&quot;mock&quot;</span>] =<span class="number">0</span></span><br><span class="line">	lokiRst = LokiResult(inputLIST)</span><br><span class="line">	<span class="keyword">if</span> lokiRst.getStatus():</span><br><span class="line">   		<span class="keyword">for</span> index, key <span class="keyword">in</span> <span class="built_in">enumerate</span>(inputLIST):</span><br><span class="line">       		<span class="keyword">for</span> resultIndex <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, lokiRst.getLokiLen(index)):</span><br><span class="line">           <span class="comment"># mock_polite_2</span></span><br><span class="line">           <span class="keyword">if</span> lokiRst.getIntent(index, resultIndex) == <span class="string">&quot;mock_polite_2&quot;</span>:</span><br><span class="line">               	resultDICT = Loki_mock_polite_2.getResult(key, lokiRst.getUtterance(index, resultIndex), lokiRst.getArgs(index, resultIndex), resultDICT)</span><br><span class="line">            		resultDICT[<span class="string">&quot;mock&quot;</span>] += <span class="number">0</span></span><br><span class="line">           <span class="keyword">else</span>:</span><br><span class="line">           	resultDICT = &#123;<span class="string">&quot;msg&quot;</span>: lokiRst.getMessage()&#125;</span><br><span class="line">			<span class="keyword">return</span> resultDICT </span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">runLoki</span>(<span class="params">inputLIST</span>):</span></span><br><span class="line">	resultDICT = &#123;&#125;</span><br><span class="line">	resultDICT[<span class="string">&quot;mock&quot;</span>] =<span class="number">0</span></span><br><span class="line">	lokiRst = LokiResult(inputLIST)</span><br><span class="line">	<span class="keyword">if</span> lokiRst.getStatus():</span><br><span class="line">   		<span class="keyword">for</span> index, key <span class="keyword">in</span> <span class="built_in">enumerate</span>(inputLIST):</span><br><span class="line">       		<span class="keyword">for</span> resultIndex <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, lokiRst.getLokiLen(index)):</span><br><span class="line">           <span class="comment"># mock_polite_2</span></span><br><span class="line">           <span class="keyword">if</span> lokiRst.getIntent(index, resultIndex) == <span class="string">&quot;mock_polite_2&quot;</span>:</span><br><span class="line">               	resultDICT = Loki_mock_polite_2.getResult(key, lokiRst.getUtterance(index, resultIndex), lokiRst.getArgs(index, resultIndex), resultDICT)</span><br><span class="line">           <span class="keyword">else</span>:</span><br><span class="line">           	resultDICT = &#123;<span class="string">&quot;msg&quot;</span>: lokiRst.getMessage()&#125;</span><br><span class="line">			<span class="keyword">return</span> resultDICT </span><br></pre></td></tr></table></figure>
 </li>
 <li><p>在程式進入點<code>if __name__ == &quot;__main__&quot;:</code> 後撰寫比對系統，如下:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"> 	<span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">  	<span class="comment">#載入articut這個斷詞系統 </span></span><br><span class="line"> 		articut = ArticutAPI.Articut(level=<span class="string">&quot;lv2&quot;</span>)</span><br><span class="line">      </span><br><span class="line">      <span class="comment">#articut 會把詞性一併標記，但現在我們暫時用不到這個功能，所以我們把詞型編著的規則找到，然後用re 表示出來。然後把這些詞性用 &quot;&quot;來取代</span></span><br><span class="line">pat = <span class="string">&quot;&lt;/?[a-zA-Z]+?_?[a-zA-Z]+?&gt;&quot;</span> </span><br><span class="line">  	parseResultDICT = articut.parse(inputSTR)</span><br><span class="line">inputLIST = []</span><br><span class="line">count_mock = <span class="number">0</span></span><br><span class="line">		<span class="keyword">for</span> p <span class="keyword">in</span> parseResultDICT[<span class="string">&quot;result_pos&quot;</span>]:</span><br><span class="line">  		<span class="keyword">if</span> <span class="built_in">len</span>(p) == <span class="number">1</span>:</span><br><span class="line">      		<span class="keyword">pass</span></span><br><span class="line">  		<span class="keyword">else</span>:</span><br><span class="line">      		inputLIST.append(re.sub(pat, <span class="string">&quot;&quot;</span>, p))</span><br><span class="line">      </span><br><span class="line">      <span class="comment"># 因為articut 一次只能先餵20句，所以我們用20句為單位，請articut 斷好詞以後，我們就比對我們在Loki裡面的句型，有對到就加 1 </span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, math.ceil(<span class="built_in">len</span>(inputLIST)/<span class="number">20</span>)):</span><br><span class="line">  		resultDICT = runLoki(inputLIST[i*<span class="number">20</span>:(i+<span class="number">1</span>)*<span class="number">20</span>])</span><br><span class="line">  		<span class="keyword">try</span>: </span><br><span class="line">      		count_mock  += resultDICT[<span class="string">&quot;mock&quot;</span>]</span><br><span class="line">  		<span class="keyword">except</span>:</span><br><span class="line">      		<span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">#print 出答案            </span></span><br><span class="line">  	resultDICT[<span class="string">&quot;mock&quot;</span>] = count_mock</span><br><span class="line">      print(<span class="string">&quot;酸度: &#123;&#125;&quot;</span>.<span class="built_in">format</span>(count_mock/<span class="built_in">len</span>(inputLIST)))</span><br><span class="line"><span class="comment">#print(&quot;Result =&gt; &#123;&#125;&quot;.format(resultDICT))</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"> 	<span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">  	<span class="comment">#載入articut這個斷詞系統 </span></span><br><span class="line"> 		articut = ArticutAPI.Articut(level=<span class="string">&quot;lv2&quot;</span>)</span><br><span class="line">      </span><br><span class="line">      <span class="comment">#articut 會把詞性一併標記，但現在我們暫時用不到這個功能，所以我們把詞型編著的規則找到，然後用re 表示出來。然後把這些詞性用 &quot;&quot;來取代</span></span><br><span class="line">pat = <span class="string">&quot;&lt;/?[a-zA-Z]+?_?[a-zA-Z]+?&gt;&quot;</span> </span><br><span class="line">  	parseResultDICT = articut.parse(inputSTR)</span><br><span class="line">inputLIST = []</span><br><span class="line">count_mock = <span class="number">0</span></span><br><span class="line">		<span class="keyword">for</span> p <span class="keyword">in</span> parseResultDICT[<span class="string">&quot;result_pos&quot;</span>]:</span><br><span class="line">  		<span class="keyword">if</span> <span class="built_in">len</span>(p) == <span class="number">1</span>:</span><br><span class="line">      		<span class="keyword">pass</span></span><br><span class="line">  		<span class="keyword">else</span>:</span><br><span class="line">      		inputLIST.append(re.sub(pat, <span class="string">&quot;&quot;</span>, p))</span><br><span class="line">      </span><br><span class="line">      <span class="comment"># 因為articut 一次只能先餵20句，所以我們用20句為單位，請articut 斷好詞以後，我們就比對我們在Loki裡面的句型，有對到就加 1 </span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, math.ceil(<span class="built_in">len</span>(inputLIST)/<span class="number">20</span>)):</span><br><span class="line">  		resultDICT = runLoki(inputLIST[i*<span class="number">20</span>:(i+<span class="number">1</span>)*<span class="number">20</span>])</span><br><span class="line">  		<span class="keyword">try</span>: </span><br><span class="line">      		count_mock  += resultDICT[<span class="string">&quot;mock&quot;</span>]</span><br><span class="line">  		<span class="keyword">except</span>:</span><br><span class="line">      		<span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">#print 算出答案，這邊我們是算有多少句子對到之前的句型，然後除以所有的句子。所以如果接近0就是不酸，接近1就是酸  </span></span><br><span class="line">      </span><br><span class="line">  	resultDICT[<span class="string">&quot;mock&quot;</span>] = count_mock</span><br><span class="line">      print(<span class="string">&quot;酸度: &#123;&#125;&quot;</span>.<span class="built_in">format</span>(count_mock/<span class="built_in">len</span>(inputLIST)))</span><br><span class="line"><span class="comment">#print(&quot;Result =&gt; &#123;&#125;&quot;.format(resultDICT))</span></span><br></pre></td></tr></table></figure>
 
 
 </li>
@@ -175,15 +178,15 @@
 </ul>
 </li>
 </ol>
-<p>  那~ 這個效果如何呢？<br>  如果是新聞，是長這樣</p>
-<p>  如果是酸文是長這樣~</p>
+<p>  那~ 這個效果如何呢？<br>  如果是新聞，是長這樣，算出來沒有對到任何句子<br>  <img src="https://upload.cc/i1/2021/01/25/RzhjJu.png" alt="新聞"></p>
+<p>  如果是酸文是長這樣~ 是0.83<br>  <img src="https://upload.cc/i1/2021/01/25/clzqpF.png" alt="酸文"></p>
 <p>  就這樣，簡簡單單超級容易，運用一點點語言學知識，你就可以完成一個諷刺文本分類器惹~</p>
 <p>  謝謝大家</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://robinjlin.github.io/codingblog/2021/01/24/%E5%88%B0%E5%BA%95%E6%98%AF%E4%B8%8D%E6%98%AF%E9%AB%98%E7%B4%9A%E9%85%B8-%E4%BA%A4%E7%B5%A6%E8%AB%B7%E5%88%BA%E6%96%87%E6%9C%AC%E5%88%86%E9%A1%9E%E5%99%A8%E5%90%A7-1/" data-id="ckkb1eadi00011gvx3wi31xci" data-title="這篇文章酸到發酵? 分析酸味的諷刺文本分類器 ~" class="article-share-link">Share</a>
+      <a data-url="https://robinjlin.github.io/codingblog/2021/01/24/%E5%88%B0%E5%BA%95%E6%98%AF%E4%B8%8D%E6%98%AF%E9%AB%98%E7%B4%9A%E9%85%B8-%E4%BA%A4%E7%B5%A6%E8%AB%B7%E5%88%BA%E6%96%87%E6%9C%AC%E5%88%86%E9%A1%9E%E5%99%A8%E5%90%A7-1/" data-id="ckkbzqc1q0001y8vx34rq5ag4" data-title="這篇文章酸到發酵? 分析酸味的諷刺文本分類器 ~" class="article-share-link">Share</a>
       
       
       
@@ -193,11 +196,15 @@
     
 <nav id="article-nav">
   
-  
-    <a href="/codingblog/2021/01/24/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hello World</div>
+    <a href="/codingblog/2021/01/25/%E9%85%B8%E6%96%87or-not-%E4%BE%86%E7%94%A8%E7%94%A8%E7%9C%8B%E8%AB%B7%E5%88%BA%E6%96%87%E6%9C%AC%E5%90%A7/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          酸文or not~ 來判斷看看是不是諷刺文本吧~
+        
+      </div>
     </a>
+  
   
 </nav>
 
@@ -234,11 +241,11 @@
       <ul>
         
           <li>
-            <a href="/codingblog/2021/01/24/%E5%88%B0%E5%BA%95%E6%98%AF%E4%B8%8D%E6%98%AF%E9%AB%98%E7%B4%9A%E9%85%B8-%E4%BA%A4%E7%B5%A6%E8%AB%B7%E5%88%BA%E6%96%87%E6%9C%AC%E5%88%86%E9%A1%9E%E5%99%A8%E5%90%A7-1/">這篇文章酸到發酵? 分析酸味的諷刺文本分類器 ~</a>
+            <a href="/codingblog/2021/01/25/%E9%85%B8%E6%96%87or-not-%E4%BE%86%E7%94%A8%E7%94%A8%E7%9C%8B%E8%AB%B7%E5%88%BA%E6%96%87%E6%9C%AC%E5%90%A7/">酸文or not~ 來判斷看看是不是諷刺文本吧~</a>
           </li>
         
           <li>
-            <a href="/codingblog/2021/01/24/hello-world/">Hello World</a>
+            <a href="/codingblog/2021/01/24/%E5%88%B0%E5%BA%95%E6%98%AF%E4%B8%8D%E6%98%AF%E9%AB%98%E7%B4%9A%E9%85%B8-%E4%BA%A4%E7%B5%A6%E8%AB%B7%E5%88%BA%E6%96%87%E6%9C%AC%E5%88%86%E9%A1%9E%E5%99%A8%E5%90%A7-1/">這篇文章酸到發酵? 分析酸味的諷刺文本分類器 ~</a>
           </li>
         
       </ul>
